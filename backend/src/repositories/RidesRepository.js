@@ -12,10 +12,11 @@ const getRides = async () => {
 
 //método protótipo para buscar um atributo ou mais
 const getRidesByKeyValue = (vehicle, createdAt) => {
-    const response = await User.findOne({vehicle: vehicle, createdAt: createdAt})
+    const response = User.findOne({vehicle: vehicle, createdAt: createdAt})
     return response
 }
 
 module.exports = {
     createRide, getRides, getRidesByKeyValue
 }
+console.log('test git connection')

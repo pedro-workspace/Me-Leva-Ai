@@ -1,4 +1,4 @@
-const ridesRepository = require('RidesRepository')
+const ridesRepository = require('../repositories/RidesRepository');
 
 //Objeto de retorno padrão
 //statusCode, fornece a requisition
@@ -6,7 +6,7 @@ const ridesRepository = require('RidesRepository')
 
 const createRide = async (ride) => {
     try {
-        const data = ridesRepository.createRide(ride)
+        const data = ridesRepository.createRide(ride);
         //validações para verificar o parâmetro
         if (!ride) {
             return {
@@ -28,7 +28,7 @@ const createRide = async (ride) => {
             data:error.message
         }
     }
-}
+};
 
 const getRides = async () => {
     try {
@@ -45,11 +45,11 @@ const getRides = async () => {
             data: error.message
         }
     }
-}
+};
 
 const getRidesByKeyValue = (vehicle, createdAt) => {
     try {
-        const ride = await ridesRepository.getRidesByKeyValue(vehicle, createdAt)
+        const ride = ridesRepository.getRidesByKeyValue(vehicle, createdAt)
         if (rides) {
             return {
                 statusCode: 200,
@@ -71,9 +71,9 @@ const getRidesByKeyValue = (vehicle, createdAt) => {
             }
         }
     }
-}
+};
 
 //habilitando uso
 module.exports = {
     createRide, getRides, getRidesByKeyValue
-}
+};
