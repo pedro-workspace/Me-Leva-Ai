@@ -15,13 +15,15 @@ const createUser = async (user) => {
         }
       }
       // antes de criar o usuario eu preciso verificar se o mesmo já nao existe na base
-      {
+      const {telephone} = user
+      const findUser = await userRepository.getUserByTelephone(telephone);
+      if (findUser) {
         return {
-          // tratar esse erro na camada 2
-          statusCode: 202,
-          data: 'Usuário já inserido na base de dados'
-        }
+          // tratar esse erro na camada 4
+          statusCode: 400,
+          data: 'Veículo já cadastrado na base'
       }
+    }
       const data = userRepository.createUser(user);
       return {
         statusCode: 200,
@@ -38,7 +40,6 @@ const createUser = async (user) => {
 
 const getUsers = async () => {
   try {
-    console.log(user)
     const data = await userRepository.getUsers();
     return {
       statusCode: 200,
@@ -53,9 +54,9 @@ const getUsers = async () => {
   }
 }
 
-const getUserByTelephoneAndPassword = async (telephone, password) => {
+const getUserByTelephone = async (telephone) => {
   try {
-    const user = await userRepository.getUserByTelephoneAndPassword(telephone, password);
+    const user = await userRepository.getUserByTelephoneAndPassword(telephone);
     if (user) {
       return {
         statusCode: 200,
@@ -83,5 +84,5 @@ const getUserByTelephoneAndPassword = async (telephone, password) => {
 
 // deixando os métodos disponíveis para uso
 module.exports = {
-  createUser, getUsers, getUserByTelephoneAndPassword
+  createUser, getUsers, getUserByTelephone
 }

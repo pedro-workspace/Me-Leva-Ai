@@ -42,6 +42,50 @@ const createVehicleService = async (payload) => {
   }
 }
 
+const getVehicle = async () => {
+  try {
+    console.log(user)
+    const data = await vehicleRepository.getVehicle();
+    return {
+      statusCode: 200,
+      data: data
+    }
+  }
+  catch (error) {
+    return {
+      statusCode: 500,
+      data: error.message
+    }
+  }
+}
+
+const getVehicleByLicensePlate = async () => {
+  try {
+    const user = await vehicleRepository.getVehicleByLicensePlate(telephone, password);
+    if (user) {
+      return {
+        statusCode: 200,
+        data: user
+      }
+    }
+    else {
+      return {
+        statusCode: 404,
+        data: { message: 'Usuário não encontrado.' }
+      }
+    }
+  }
+  catch (error) {
+    return {
+      statusCode: 500,
+      data: {
+        message: 'Não foi possível obter o usuário.',
+        error: error.message
+      }
+    }
+  }
+}
+
 module.exports = {
-  createVehicleService,
+  createVehicleService, getVehicle, getVehicleByLicensePlate
 }

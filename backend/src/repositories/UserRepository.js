@@ -10,12 +10,12 @@ const getUsers = async () => {
   return await User.find();
 }
 
-const getUserByTelephoneAndPassword = async (telephone, password) => {
-  const response = await User.findOne({ telephone: telephone, password: password });
+const getUserByTelephone = async (telephone) => {
+  const response = await User.findOne({ telephone: telephone});
   return response;
 }
 
 // deixando os métodos disponíveis para uso
 module.exports = {
-  createUser, getUsers, getUserByTelephoneAndPassword
+  createUser, getUsers, getUserByTelephone
 }

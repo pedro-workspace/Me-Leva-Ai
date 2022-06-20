@@ -6,6 +6,6 @@ const userController = require('../controllers/UserController');
 
 routersUsers.post('', userController.postUsuario);
 routersUsers.get('', userController.getUsers);
-routersUsers.get('/:telephone/:password', userController.getUserByTelephoneAndPassword);
+routersUsers.get('/:telephone', userController.getUserByTelephone);
 
 module.exports = routersUsers;

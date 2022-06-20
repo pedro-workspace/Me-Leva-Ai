@@ -28,5 +28,3 @@ const userSchema = mongoose.Schema({
 
 // Registrando o schema e atribuindo a uma tabela
 mongoose.model('User',userSchema);
-
-

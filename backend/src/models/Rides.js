@@ -39,6 +39,5 @@ const rideSchema = mongoose.Schema({
 });
 
 // Registrando o schema e atribuindo a uma tabela
+//     Abaixo é como se 'exporta' um modelo mongoose
 mongoose.model('Ride', rideSchema);
-
-

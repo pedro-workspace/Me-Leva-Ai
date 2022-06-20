@@ -1,6 +1,6 @@
 //Fazendo tabela Rides com mongoose
 const mongoose = require('mongoose')
-const Rides = mongoose.model('Rides') //acessando a table 'Rides'
+const Rides = mongoose.model('Ride') //acessando a table 'Rides'
 
 const createRide = async (ride) => {
     return await Rides.create(ride)
@@ -19,4 +19,3 @@ const getRidesByKeyValue = (vehicle, createdAt) => {
 module.exports = {
     createRide, getRides, getRidesByKeyValue
 }
-console.log('test git connection')

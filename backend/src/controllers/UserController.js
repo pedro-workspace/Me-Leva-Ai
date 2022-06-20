@@ -12,12 +12,12 @@ const getUsers = async (req, res) => {
 
 }
 
-const getUserByTelephoneAndPassword = async (req, res) => {
-  const { telephone, password } = req.params;
-  const response = await userService.getUserByTelephoneAndPassword(telephone, password);
+const getUserByTelephone = async (req, res) => {
+  const { telephone} = req.params;
+  const response = await userService.getUserByTelephone(telephone);
   return res.status(response.statusCode).json(response.data);
 }
 
 module.exports = {
-  postUsuario, getUsers, getUserByTelephoneAndPassword
+  postUsuario, getUsers, getUserByTelephone
 }
