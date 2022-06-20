@@ -44,7 +44,7 @@ const createVehicleService = async (payload) => {
 
 const getVehicle = async () => {
   try {
-    const data = await vehicleRepository.getVehicle();
+    const data = await vehicleRepository.getVehicles();
     return {
       statusCode: 200,
       data: data

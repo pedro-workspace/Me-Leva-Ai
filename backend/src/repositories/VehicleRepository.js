@@ -7,7 +7,7 @@ const createVehicle = async (vehicle) => {
 }
 
 const getVehicles = async () => {
-  const response = await Vehicle.find({});
+  const response = await Vehicle.find();
   return response;
 }
 
