@@ -32,7 +32,6 @@ const createRide = async (ride) => {
 
 const getRides = async () => {
     try {
-        console.log(ride)
         const data = await ridesRepository.getRides()
         return {
             statusCode: 200,
