@@ -12,6 +12,12 @@ const getUsers = async (req, res) => {
 
 }
 
+const login = async (req, res) => {
+  const {body} = req
+  const response = await userService.loginService(body)
+  return res.status(response.statusCode).json(response.data)
+}
+
 const getUserByTelephone = async (req, res) => {
   const { telephone} = req.params;
   const response = await userService.getUserByTelephone(telephone);
@@ -19,5 +25,8 @@ const getUserByTelephone = async (req, res) => {
 }
 
 module.exports = {
-  postUsuario, getUsers, getUserByTelephone
+  postUsuario,
+  getUsers, 
+  getUserByTelephone, 
+  login
 }
