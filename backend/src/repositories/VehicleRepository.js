@@ -17,5 +17,7 @@ const vehicleByLicensePlate = async (plate) => {
 }
 
 module.exports = {
-  createVehicle, vehicleByLicensePlate, getVehicles
+  createVehicle,
+  vehicleByLicensePlate, 
+  getVehicles
 }

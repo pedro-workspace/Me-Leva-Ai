@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose'); // irá nos apoiar a manipular o mongoDB
 const requireDir = require('require-dir');
+const cors = require('cors')
+require(dotenv).config() //disponibilizando variáveis do dotenv
 
 // INICIANDO O SERVIDOR
 const app = express();
@@ -8,6 +10,9 @@ const port = 3000
 
 // determinar que o uso do JSON
 app.use(express.json());
+
+//uso de cors para consumo no front-end
+app.use(cors())
 
 // Conectar no bando de dados
 mongoose.connect(
